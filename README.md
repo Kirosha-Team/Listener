@@ -14,13 +14,9 @@ C++ library for communication between boards.
 
 ``ESP8266 Board``
 
-##
-
 ### Software requirements
 
 ``Arduino IDE``
-
-##
 
 ### Installation
 
