@@ -9,8 +9,10 @@ C++ library for communication between boards
     <img src="https://cdn.discordapp.com/attachments/773798084479418389/1356956551134576801/microchip.png?ex=67ee73c4&is=67ed2244&hm=bdd97592b4b55e7d4e2ab1b09414c7795297606a027d3bec0c911f78c129f49d&" alt="Hardware" style="width:2%">
     Hardware requirements:
 </h2>
-<img src="https://robototehnika.ru/upload/iblock/00e/5dnhsob49jo4wu7alkn60dht2tlf31hd/kontroller-nodemcu-v3-lolin-wifi-na-esp8266-ch340g.jpeg" alt="Board" style="width:30%">
 </div>
+
+``ESP8266 board``
+
 <hr style="border:2px solid gray">
 <div>
 <h2>
