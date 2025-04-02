@@ -2,7 +2,7 @@
 <h1>
     KiroshaTeam/App
 </h1>
-C++ library for communication between boards.
+C++ library for communication between smart devices and gestures' controllable smart station.
 </div>
 
 ## Getting started
