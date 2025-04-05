@@ -1,58 +1,58 @@
 // name: Listener.cpp
 // desc: simple solution for communication between smart device and gcss
 // creator: @kpers
-// date: 03.03.2025
+// created: 03.03.2025
+// updated: 05.04.2025
 
-// requires Built-In libraries
 #include "Arduino.h"
 #include "Listener.h"
 #include <ESP8266WiFi.h>
 #include <WiFiUdp.h>
 
-WiFiUDP udp; // initializes WiFiUDP library
+WiFiUDP udp;
 
-char packet_buffer[255]; // data size
+char packet_buffer[255];
 
 // Listener function
 // creates a new listener
 // returns void
 Listener::Listener(
-  char *server_ip,     //
-  int server_port,     //
-                       //
-  int client_port,     // board and Wi-Fi info
-                       //
-  const char *ssid,    //
-  const char *password //
+  char *server_ip,
+  int server_port,
+
+  int client_port,
+
+  const char *ssid,
+  const char *password
 )
 {
-  _running = false; // variable
+  _running = false;
 
-  _server_ip = server_ip;         //
-  _server_port = server_port;     //
-                                  //
-  _client_port = client_port;     // board and Wi-Fi info
-                                  //
-  _ssid = ssid;                   //
-  _password = password;           //
+  _server_ip = server_ip;
+  _server_port = server_port;
+
+  _client_port = client_port;
+
+  _ssid = ssid;
+  _password = password;
 }
 
 // send_server function
 // sends signal to the server
 // returns void
 void Listener::send(
-  const char *data // data to send
+  const char *data
 ) 
 {
-  udp.beginPacket(_server_ip, _server_port); // establishes a connection with a remote device to send data via UDP
+  udp.beginPacket(_server_ip, _server_port);
 
   char buffer[30];
 
-  sprintf(buffer, data); // debugs data
+  sprintf(buffer, data);
 
-  udp.printf(buffer); // sends data to the server
+  udp.printf(buffer);
 
-  udp.endPacket(); // finish sending data to the server
+  udp.endPacket();
 }
 
 // get_from_server function
@@ -62,55 +62,55 @@ char *Listener::get(
 
 ) 
 {
-  int packet_size = udp.parsePacket(); // checks for the presence of a received UDP packet and returns its size
+  int packet_size = udp.parsePacket();
 
   if (packet_size) {
-    Serial.print("[DEBUG]: Received packet from: "); Serial.println(udp.remoteIP()); // debugs info about sender
+    Serial.print("[DEBUG]: Received packet from: "); Serial.println(udp.remoteIP());
 
-    int len = udp.read(packet_buffer, 10); // reads UDP data into the specified buffer
+    int len = udp.read(packet_buffer, 10);
 
-    Serial.printf("Data: %s\n", packet_buffer); //
-                                                // debugs data
-    Serial.println();                           //
+    Serial.printf("Data: %s\n", packet_buffer);
 
-    return packet_buffer; // returns received data
+    Serial.println();
+
+    return packet_buffer;
   }
 
-  return "----------"; // returns no data
+  return "----------";
 }
 
 // begin function
 // initializes listener
 // returns void
 void Listener::begin(
-  const char *board_info // board info
+  const char *board_info
 )
 {
-  Serial.begin(115200); // initializes Serial
+  Serial.begin(115200);
   
-  WiFi.begin(_ssid, _password); // initializes Wifi
+  WiFi.begin(_ssid, _password);
   
-  while (WiFi.status() != WL_CONNECTED) { //
-    delay(500); Serial.print(F("."));     // loops until board connects to the Wifi
-  }                                       //
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500); Serial.print(F("."));
+  }
 
-  udp.begin(_client_port); // initializes port update
+  udp.begin(_client_port);
   
-  Serial.printf("[DEBUG]: Connected to the WiFi with local port: %s:%i \n", WiFi.localIP().toString().c_str(), _client_port); // debugs successful connection
+  Serial.printf("[DEBUG]: Connected to the WiFi with local port: %s:%i \n", WiFi.localIP().toString().c_str(), _client_port);
 
-  while (_running == false) {                           //
-    send(board_info);                                   //
-                                                        //
-    Serial.print("[DEBUG]: Waiting for a response..."); //
-    Serial.println();                                   //
-                                                        //
-    delay(2000);                                        //
-                                                        // loops until board pairs with gcss
-    if (String(get()) == "successful") {                //
-      Serial.print("[DEBUG]: Pairing successful");      //
-      Serial.println();                                 //
-                                                        //
-      break;                                            //
-    }                                                   //
-  }                                                     //
+  while (_running == false) {
+    send(board_info);
+
+    Serial.print("[DEBUG]: Waiting for a response...");
+    Serial.println();
+
+    delay(2000);
+
+    if (String(get()) == "successful") {
+      Serial.print("[DEBUG]: Pairing successful");
+      Serial.println();
+
+      break;
+    }
+  }
 }
