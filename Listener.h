@@ -1,16 +1,14 @@
 // name: Listener.h
 // desc: header for Listener.cpp
 // creator: @kpers
-// date: 03.03.2025
+// created: 03.03.2025
+// updated: 05.04.2025
 
-// defines Listener library
 #ifndef LISTENER_H
 #define LISTENER_H
 
-// requires Built-In libraries
 #include "Arduino.h"
 
-// creates new class
 class Listener
 {
   public:
@@ -18,20 +16,20 @@ class Listener
     // creates a new listener
     // returns void
     Listener(
-      char *server_ip,     //
-      int server_port,     //
-                           //
-      int client_port,     // board and Wi-Fi info
-                           //
-      const char *ssid,    //
-      const char *password //
+      char *server_ip,
+      int server_port,
+
+      int client_port,
+
+      const char *ssid,
+      const char *password
     );
 
     // send_server function
     // sends signal to the server
     // returns void
     void send(
-      const char *data // data to send
+      const char *data
     );
 
     // get_from_server function
@@ -45,20 +43,19 @@ class Listener
     // initializes listener
     // returns void
     void begin(
-      const char *board_info // board info
+      const char *board_info
     );
 
   private:
-    bool _running; // variable
+    bool _running;
 
-    char *_server_ip;      //
-    int _server_port;      //
-                           //
-    int _client_port;      // board and Wi-Fi info
-                           //
-    const char *_ssid;     //
-    const char *_password; //
+    char *_server_ip;
+    int _server_port;
+
+    int _client_port;
+
+    const char *_ssid;
+    const char *_password;
 };
 
-// closes directive
 #endif
