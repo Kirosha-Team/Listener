@@ -65,12 +65,12 @@ char *Listener::get(
   int packet_size = udp.parsePacket();
 
   if (packet_size) {
-    Serial.print("[DEBUG]: Received packet from: "); Serial.println(udp.remoteIP());
+    Serial.print("[DEBUG]: Received packet from: ");
+    Serial.println(udp.remoteIP());
 
     int len = udp.read(packet_buffer, 10);
 
     Serial.printf("Data: %s\n", packet_buffer);
-
     Serial.println();
 
     return packet_buffer;
@@ -91,7 +91,9 @@ void Listener::begin(
   WiFi.begin(_ssid, _password);
   
   while (WiFi.status() != WL_CONNECTED) {
-    delay(500); Serial.print(F("."));
+    delay(500);
+    
+    Serial.print(F("."));
   }
 
   udp.begin(_client_port);
