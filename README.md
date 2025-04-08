@@ -1,6 +1,6 @@
 <div align="center">
 <h1>
-    Kirosha-Team/Library
+    Kirosha-Team/Listener
 </h1>
 C++ library for communication between smart devices and gestures' controllable smart station.
 </div>
