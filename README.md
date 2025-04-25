@@ -73,8 +73,8 @@ void loop() {
     listener.send("your message here");
   }
 
-  // delay for 5 seconds
-  delay(5000);
+  // delay for 0.1 second
+  delay(100);
 }
 ```
 
