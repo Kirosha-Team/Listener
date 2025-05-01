@@ -34,7 +34,7 @@ class Listener
 
     // get_from_server function
     // receives signal from server
-    // returns data
+    // returns String
     char *get(
 
     );
