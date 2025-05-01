@@ -60,7 +60,7 @@ void Listener::send(
 
 // get_from_server function
 // receives signal from server
-// returns data
+// returns String
 char *Listener::get(
 
 ) 
