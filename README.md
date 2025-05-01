@@ -38,7 +38,7 @@ C++ library for communication between smart devices and gestures' controllable s
 ### Usage
 
 > [!CAUTION]
-> Don't try to initialize library twice, otherwise an error will occur
+> Don't try to initialize library twice, otherwise an error will occur.
 
 First, the **Listener** class is created. After that, we use the **begin** method to connect our smart device to gestures' controllable smart station. The **get** method is used to receive data, and the **send** method is used to send data.
 
