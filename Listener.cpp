@@ -6,6 +6,7 @@
 
 #include "Arduino.h"
 #include "Listener.h"
+
 #include <ESP8266WiFi.h>
 #include <WiFiUdp.h>
 
@@ -100,6 +101,7 @@ void Listener::begin(
 
   udp.begin(_client_port);
   
+  Serial.println();
   Serial.printf("[DEBUG]: Connected to the WiFi with local port: %s:%i", WiFi.localIP().toString().c_str(), _client_port);
   Serial.println();
 
