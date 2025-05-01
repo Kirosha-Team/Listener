@@ -2,7 +2,7 @@
 // desc: simple solution for communication between smart devices and gcss
 // creator: @kpers
 // created: 03.03.2025
-// updated: 25.04.2025
+// updated: 1.05.2025
 
 #include "Arduino.h"
 #include "Listener.h"
