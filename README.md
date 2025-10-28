@@ -6,7 +6,7 @@ C++ library for communication between smart devices and gestures' controllable s
 </div>
 
 > [!CAUTION]
-> this project is discontinued due to bugs and poor optimization
+> this project is discontinued due to bugs and poor optimization.
 
 ## Getting started
 
