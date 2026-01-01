@@ -5,9 +5,6 @@
 C++ library for communication between smart devices and gestures' controllable smart station.
 </div>
 
-> [!CAUTION]
-> this project is discontinued due to bugs and poor optimization.
-
 ## Getting started
 
 ### Hardware requirements
